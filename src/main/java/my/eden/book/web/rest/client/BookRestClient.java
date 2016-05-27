@@ -1,4 +1,4 @@
-package my.eden.book.web.rest;
+package my.eden.book.web.rest.client;
 
 import com.google.common.collect.Lists;
 import my.eden.book.web.rest.client.vo.Book;
