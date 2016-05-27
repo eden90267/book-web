@@ -38,6 +38,10 @@ targetCompatibility = 1.8
 dependencies {
     compile("javax.servlet:jstl:1.2")
     compile ("org.springframework.boot:spring-boot-starter-web")
+    compile("com.fasterxml.jackson.core:jackson-databind")
+    compile("org.springframework.hateoas:spring-hateoas:0.19.0.RELEASE")
+    compile("org.projectlombok:lombok:1.14.8")
+    compile("com.google.guava:guava:19.0")
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
     providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper'
 }
