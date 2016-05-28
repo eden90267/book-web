@@ -16,7 +16,7 @@ public class BookService {
     @Autowired
     private BookRestClient restClient;
 
-    public List<Book> findAll(){
+    public List<Book> findAll() {
         return restClient.findAll();
     }
 
@@ -24,7 +24,11 @@ public class BookService {
         return restClient.findOne(id);
     }
 
-    public Book create(Book book) {
+    public boolean hasDataByBookName(String bookName) {
+        return restClient.hasDataByBookName(bookName);
+    }
+
+    public Book save(Book book) {
         return restClient.create(book);
     }
 

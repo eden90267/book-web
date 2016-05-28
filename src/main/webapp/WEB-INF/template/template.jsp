@@ -7,17 +7,28 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><tiles:insertAttribute name="title"/></title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<s:url value="/resources/js"/>/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="<s:url value="/resources/js"/>/jquery-ui-sliderAccess.js"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+    <link href="<s:url value="/resources/css"/>/jquery-ui-timepicker-addon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
     <style type="text/css">
         body {
             margin: 0px;
             padding: 0px;
             height: 100%;
             overflow: hidden;
-            font-size: 75%;
+            font-family: 'trebuchet MS', 'Lucida sans', Arial;
+            font-size: 14px;
+            color: #444;
         }
 
         .page {
@@ -49,7 +60,7 @@
         }
 
         .body {
-            margin: 45px 10px 0px 17%;
+            margin: 82px 10px 0px 17%;
             width: 81%;
             padding: 5px;
             position: absolute;
@@ -65,10 +76,14 @@
             left: 0;
             text-align: center;
             width: 100%;
-            padding-top: 5px;
-            height: 15px;
+            padding-top: 3px;
+            height: 17px;
             border: 1px #ccc solid;
             border-radius: 10px;
+        }
+
+        .error {
+            color: red;
         }
     </style>
 </head>

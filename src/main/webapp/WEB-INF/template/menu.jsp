@@ -8,11 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="menu">
-    Menu
+    <h2>Menu</h2>
     <ul>
         <li>
             <spring:url value="/book/index" var="indexUrl" htmlEscape="true"/>
             <a href="${indexUrl}">index</a>
+        </li>
+        <li>
+            <spring:url value="/book/create" var="createUrl" htmlEscape="true"/>
+            <a href="${createUrl}">create</a>
         </li>
     </ul>
 </div>

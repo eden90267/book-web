@@ -20,7 +20,7 @@ import java.util.List;
 @Service
 public class BookRestClient {
 
-    @Value("${book-rest.uri}")
+    @Value("${book-rest.url}")
     private String baseUri;
 
     @Autowired
@@ -36,6 +36,11 @@ public class BookRestClient {
     public Book findOne(Long id) {
         String resourceUri = baseUri + "/" + id;
         return restTemplate.getForObject(resourceUri, Book.class);
+    }
+
+    public boolean hasDataByBookName(String bookName) {
+        String resourceUri = baseUri + "/search/findCountByBookName?bookName=" + bookName;
+        return restTemplate.getForObject(resourceUri, Long.class) > 0;
     }
 
     public Book create(Book book) {

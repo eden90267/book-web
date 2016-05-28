@@ -2,7 +2,11 @@ package my.eden.book.web.rest.client.vo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -19,9 +23,12 @@ import java.util.Date;
 public class Book {
 
     private long id;
+    @Size(max = 255, message = "BookName must be less than 255 characters long.")
     private String bookName;
+    @Min(value = 0, message = "BookPrice must be greater than zero long.")
     private BigDecimal bookPrice;
     private String bookImage;
+    @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
     private Date createTime;
 
     private Book(Builder builder) {
