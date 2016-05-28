@@ -9,7 +9,10 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 
 <tiles:insertDefinition name="defaultTemplate">
-  <tiles:putAttribute name="body">
-    ${books}
-  </tiles:putAttribute>
+    <tiles:putAttribute name="title">
+        Index
+    </tiles:putAttribute>
+    <tiles:putAttribute name="body">
+        ${books}
+    </tiles:putAttribute>
 </tiles:insertDefinition>
