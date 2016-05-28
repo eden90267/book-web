@@ -18,7 +18,7 @@ public class BookController {
 
     @RequestMapping(value = {"/","index"})
     public String index(Model model){
-        model.addAttribute("index", "Hello Book!");
+        model.addAttribute("books", bookService.findAll());
         return "book/index";
     }
 
