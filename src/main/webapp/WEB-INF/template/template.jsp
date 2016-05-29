@@ -60,7 +60,7 @@
         }
 
         .body {
-            margin: 82px 10px 0px 17%;
+            margin: 92px 10px 0px 17%;
             width: 81%;
             padding: 5px;
             position: absolute;
@@ -76,8 +76,8 @@
             left: 0;
             text-align: center;
             width: 100%;
-            padding-top: 3px;
-            height: 17px;
+            padding-top: 2px;
+            height: 18px;
             border: 1px #ccc solid;
             border-radius: 10px;
         }

@@ -41,8 +41,6 @@ public class BookController {
     @Autowired
     private BookService service;
 
-    @Value("${book.s3.url}")
-    private String bookS3Url;
     @Value("${book.s3.access.key}")
     private String bookS3AccessKey;
     @Value("${book.s3.secret.key}")
@@ -53,7 +51,6 @@ public class BookController {
     @RequestMapping(value = {"/", "index"})
     public String index(Model model) {
         model.addAttribute("books", service.findAll());
-        model.addAttribute("bookS3Link", bookS3Url + "/" + bookS3Bucket + "/");
         return "book/index";
     }
 
@@ -101,7 +98,6 @@ public class BookController {
     @RequestMapping(value = "edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
         model.addAttribute("book", service.findOne(id));
-        model.addAttribute("bookS3Link", bookS3Url + "/" + bookS3Bucket + "/");
         return "book/edit";
     }
 
@@ -140,7 +136,7 @@ public class BookController {
         Book book = service.findOne(id);
         book.setBookImage(null);
         service.update(book);
-        return "redirect:/book/edit/" + book.getId();
+        return "book/edit/" + book.getId();
     }
 
     private void validateImage(MultipartFile image) {

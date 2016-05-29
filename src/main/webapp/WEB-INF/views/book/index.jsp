@@ -35,17 +35,19 @@
             <s:url value="/book/create" var="createUrl"/>
             <a href="${createUrl}">Create</a>
         </div>
-        <table width="100%" class="pure-table">
+        <table width="100%" class="pure-table pure-table-bordered">
             <thead>
             <tr>
-                <th align="center">Action</th>
+                <th align="center" style="width: 100px;">Action</th>
                 <th>BookName</th>
-                <th>BookPrice</th>
-                <th align="center">BookImage</th>
-                <th>CreateTime</th>
+                <th style="width: 150px;">BookPrice</th>
+                <th align="center" style="width: 50px">BookImage</th>
+                <th align="center" style="width: 200px">CreateTime</th>
             </tr>
             </thead>
             <tbody>
+            <s:eval expression="@environment.getProperty('book.s3.url')" var="bookS3Url"/>
+            <s:eval expression="@environment.getProperty('book.s3.bucket')" var="bookS3Bucket"/>
             <c:forEach var="book" items="${books}">
                 <tr>
                     <td align="center">
@@ -59,14 +61,14 @@
                         </s:url>
                         <a href="javascript:deleteBook('<c:out value="${deleteUrl}"/>')">Delete</a>
                     </td>
-                    <td>${book.bookName}</td>
+                    <td style="word-wrap:break-word;">${book.bookName}</td>
                     <td align="right">
                         <fmt:setLocale value="zh_TW"/>
                         <fmt:formatNumber value="${book.bookPrice}" type="currency" maxFractionDigits="0"/>
                     </td>
                     <td align="center">
                         <c:if test="${book.bookImage != null}">
-                            <img src="${bookS3Link}${book.bookImage}"
+                            <img src="${bookS3Url}/${bookS3Bucket}/${book.bookImage}"
                                  width="48"
                                  border="0"
                                  align="middle"

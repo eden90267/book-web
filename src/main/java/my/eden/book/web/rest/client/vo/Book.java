@@ -23,9 +23,9 @@ import java.util.Date;
 public class Book {
 
     private long id;
-    @Size(max = 255, message = "BookName must be less than 255 characters long.")
+    @Size(max = 255, message = "Please enter a value less than or equal to 255.")
     private String bookName;
-    @Min(value = 0, message = "BookPrice must be greater than zero long.")
+    @Min(value = 0, message = "Please enter a value greater than or equal to 0. ")
     private BigDecimal bookPrice;
     private String bookImage;
     @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
